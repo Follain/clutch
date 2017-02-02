@@ -50,7 +50,7 @@ describe Clutch do
       it "returns an object with errors", vcr: { record: :once } do
         redemption = Clutch.redeem(card_number: '', dollars: 10)
         expect(redemption).not_to be_success
-        p redemption
+        pp redemption
       end
     end
   end

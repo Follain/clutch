@@ -27,10 +27,6 @@ module Clutch
       client.post "/allocate", cardSetId: card_set_id
     end
 
-    def allocate(card_number:)
-      client.post "/allocate", cardNumber: card_number
-    end
-
     def hold(card_number:, dollars:)
       update_balance card_number, dollars, :hold
     end
