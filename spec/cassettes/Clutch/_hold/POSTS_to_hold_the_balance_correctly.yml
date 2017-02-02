@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/allocate
+    body:
+      encoding: UTF-8
+      string: '{"cardSetId":"FollTest01"}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Feb 2017 15:00:16 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '112'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483139334361914","pin":"5144","success":true,"requestRef":"5a57d63c-ddf3-470b-9721-b99c053b9dc7"}'
+    http_version: 
+  recorded_at: Thu, 02 Feb 2017 15:00:17 GMT
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483139334361914","action":"issue","redeemFromHoldTransactionId":null,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":10.99}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Feb 2017 15:00:17 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '146'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"transactionId":"54855999","cardNumber":"483139334361914","didOverdraw":false,"success":true,"requestRef":"10710ab3-271b-4628-8908-5c570e6765d9"}'
+    http_version: 
+  recorded_at: Thu, 02 Feb 2017 15:00:17 GMT
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483139334361914","action":"hold","redeemFromHoldTransactionId":null,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":1.99}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Feb 2017 15:00:18 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '146'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"transactionId":"54856000","cardNumber":"483139334361914","didOverdraw":false,"success":true,"requestRef":"cef74167-1086-46c7-8f7e-091532ec9c7a"}'
+    http_version: 
+  recorded_at: Thu, 02 Feb 2017 15:00:18 GMT
+recorded_with: VCR 3.0.3

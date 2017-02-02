@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"","action":"redeem","redeemFromHoldTransactionId":null,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":10}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 02 Feb 2017 15:00:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '130'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"errorMessage":"No card number was specified.","errorCode":6,"requestRef":"33b8f921-9f05-4f36-8923-f30b9d91d414","success":false}'
+    http_version: 
+  recorded_at: Thu, 02 Feb 2017 15:00:22 GMT
+recorded_with: VCR 3.0.3
