@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Clutch do
+describe Clutch, vcr: true do
   before do
     Clutch.configure do |c|
       c.clutch_api_key = ENV.fetch("CLUTCH_API_KEY")
@@ -13,7 +13,7 @@ describe Clutch do
   end
 
   describe ".allocate" do
-    it "returns a card", vcr: { record: :once } do
+    it "returns a card" do
       card = Clutch.allocate(card_set_id: "FollTest01")
       expect(card).to be_success
       expect(card.cardNumber).to be_truthy
@@ -22,7 +22,7 @@ describe Clutch do
   end
 
   describe ".hold" do
-    it "POSTS to hold the balance correctly", vcr: { record: :once } do
+    it "POSTS to hold the balance correctly" do
       card = Clutch.allocate(card_set_id: "FollTest01")
       issue = Clutch.issue(card_number: card.cardNumber, dollars: 10.99)
       hold = Clutch.hold(card_number: card.cardNumber, dollars: 1.99)
@@ -31,7 +31,7 @@ describe Clutch do
   end
 
   describe ".issue" do
-    it "adds `dollars` to the card", vcr: { record: :once } do
+    it "adds `dollars` to the card" do
       card = Clutch.allocate(card_set_id: "FollTest01")
       issue = Clutch.issue(card_number: card.cardNumber, dollars: 10.99)
       expect(issue).to be_success
@@ -39,7 +39,7 @@ describe Clutch do
   end
 
   describe ".redeem" do
-    it "POSTS to update the balance correctly", vcr: { record: :once } do
+    it "POSTS to update the balance correctly" do
       card = Clutch.allocate(card_set_id: "FollTest01")
       issue = Clutch.issue(card_number: card.cardNumber, dollars: 10.99)
       redemption = Clutch.redeem(card_number: card.cardNumber, dollars: 4.99)
@@ -47,16 +47,15 @@ describe Clutch do
     end
 
     context "without a card number" do
-      it "returns an object with errors", vcr: { record: :once } do
+      it "returns an object with errors" do
         redemption = Clutch.redeem(card_number: '', dollars: 10)
         expect(redemption).not_to be_success
-        pp redemption
       end
     end
   end
 
   describe ".redeem_hold" do
-    it "POSTS to update the balance correctly", vcr: { record: :new_episodes } do
+    it "POSTS to update the balance correctly" do
       card = Clutch.allocate(card_set_id: "FollTest01")
       issue = Clutch.issue(card_number: card.cardNumber, dollars: 10.99)
       hold = Clutch.hold(card_number: card.cardNumber, dollars: 1.99)
@@ -71,8 +70,8 @@ describe Clutch do
   end
 
   describe ".search" do
-    it "returns matching cards", vcr: { record: :once } do
-      search = Clutch.search(filters: { cardNumber: 483109705813926 })
+    it "returns matching cards" do
+      search = Clutch.search(filters: { cardNumber: 483109705813926 }, returnFields: {})
       expect(search).to be_success
       expect(search.cards.size).to eq 1
     end
