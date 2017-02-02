@@ -1,8 +1,8 @@
 # Clutch
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/clutch`. To experiment with that code, run `bin/console` for an interactive prompt.
+A simple client for the [Clutch API](http://stage-api-docs.clutch.com:8091/)
 
-TODO: Delete this and the text above, and describe your gem
+[![CircleCI](https://circleci.com/gh/Follain/clutch/tree/master.svg?style=svg&circle-token=7bef3c072bded646e3b124860faf1bf67b902f98)](https://circleci.com/gh/Follain/clutch/tree/master)
 
 ## Installation
 
