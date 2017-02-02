@@ -1,0 +1,3 @@
+test:
+  post:
+    - 'PULL_REQUEST_ID=${CI_PULL_REQUEST##*/} bundle exec pronto run -f github_pr'

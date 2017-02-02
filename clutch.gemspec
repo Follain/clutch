@@ -35,6 +35,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "hashie", "~> 3.5.1"
 
   spec.add_development_dependency "rspec", "~> 3.5.0"
+  spec.add_development_dependency "pronto"
+  spec.add_development_dependency "pronto-rubocop"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
