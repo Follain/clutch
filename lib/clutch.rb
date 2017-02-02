@@ -3,9 +3,6 @@ require "faraday_middleware"
 require "clutch/version"
 require "clutch/client"
 require "clutch/configuration"
-require "dotenv"
-
-Dotenv.load
 
 module Clutch
   class << self

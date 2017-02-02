@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "clutch"
+require "dotenv"
 require "pp"
 
 Dotenv.overload(".env.test")
