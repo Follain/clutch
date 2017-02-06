@@ -1,0 +1,7 @@
+verbose: false
+max_warnings: 150
+github:
+  slug: follain/clutch
+  access_token: ENV["GITHUB_ACCESS_TOKEN"]
+  api_endpoint: https://api.github.com/
+  web_endpoint: https://github.com/
