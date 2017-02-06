@@ -3,12 +3,12 @@ require "spec_helper"
 describe Clutch, vcr: true do
   before do
     Clutch.configure do |c|
-      c.clutch_api_key = ENV.fetch("CLUTCH_API_KEY")
-      c.clutch_api_secret = ENV.fetch("CLUTCH_API_SECRET")
-      c.clutch_api_base = ENV.fetch("CLUTCH_API_BASE")
-      c.clutch_brand = ENV.fetch("CLUTCH_BRAND")
-      c.clutch_location = ENV.fetch("CLUTCH_LOCATION")
-      c.clutch_terminal = ENV.fetch("CLUTCH_TERMINAL")
+      c.clutch_api_key = "KEY"
+      c.clutch_api_secret = "SECRET"
+      c.clutch_api_base = "https://api-test.profitpointinc.com:9002/merchant/"
+      c.clutch_brand = "BRAND"
+      c.clutch_location = "LOCATION"
+      c.clutch_terminal = "TERMINAL"
     end
   end
 
