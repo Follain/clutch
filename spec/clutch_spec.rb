@@ -1,17 +1,6 @@
 require "spec_helper"
 
 describe Clutch, vcr: true do
-  before do
-    Clutch.configure do |c|
-      c.clutch_api_key = "KEY"
-      c.clutch_api_secret = "SECRET"
-      c.clutch_api_base = "https://api-test.profitpointinc.com:9002/merchant/"
-      c.clutch_brand = "BRAND"
-      c.clutch_location = "LOCATION"
-      c.clutch_terminal = "TERMINAL"
-    end
-  end
-
   describe ".allocate" do
     it "returns a card" do
       card = Clutch.allocate(card_set_id: "FollTest01")
