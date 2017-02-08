@@ -65,4 +65,30 @@ describe Clutch, vcr: true do
       expect(search.cards.size).to eq 1
     end
   end
+
+  describe ".validate" do
+    context "with valid pin" do
+      it "returns matching cards" do
+        validate = Clutch.validate(filters: { cardNumber: 483140395030281 }, pin: 8422, returnFields: {})
+        expect(validate).to be_success
+        expect(validate.cards.size).to eq 1
+      end
+    end
+
+    context "with NOT valid pin" do
+      it "returns error" do
+        expect{
+          Clutch.validate(filters: { cardNumber: 483140395030281 }, pin: 0000, returnFields: {})
+        }.to raise_error(Clutch::ResponseException)
+      end
+    end
+
+    context "with NOT valid number" do
+      it "returns nothing" do
+        validate = Clutch.validate(filters: { cardNumber: 4831403 }, pin: 8422, returnFields: {})
+        expect(validate).to be_success
+        expect(validate.cards.size).to eq 0
+      end
+    end
+  end
 end

@@ -2,6 +2,7 @@ require "faraday"
 require "faraday_middleware"
 require "clutch/version"
 require "clutch/client"
+require "clutch/response_exception"
 require "clutch/configuration"
 
 module Clutch
@@ -67,12 +68,18 @@ module Clutch
 
       case result.errorMessage
       when 'Could not find the specified card.'
-        raise ActiveRecord::RecordNotFound
+        raise Clutch::ResponseException.new(result), result.errorMessage
       when 'Could not find the account that goes with the specified card.'
         return { cardNumber: card_number, activated: false, balances: [] }
       else
-        raise result.errorMessage
+        raise Clutch::ResponseException.new(result), result.errorMessage
       end
+    end
+
+    def validate(filters:, returnFields:, pin:)
+      response = client.post "/search", filters: filters, returnFields: returnFields, forcePinValidation: true, pin: pin
+      raise Clutch::ResponseException.new(response), response.errorMessage unless response.success?
+      response
     end
 
     private

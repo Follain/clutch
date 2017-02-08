@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/search
+    body:
+      encoding: UTF-8
+      string: '{"filters":{"cardNumber":483140395030281},"returnFields":{},"forcePinValidation":true,"pin":0}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 08 Feb 2017 11:12:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '119'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"errorMessage":"Invalid card PIN.","errorCode":10,"requestRef":"da52e70d-af26-428b-899a-632491498c42","success":false}'
+    http_version: 
+  recorded_at: Wed, 08 Feb 2017 11:12:35 GMT
+recorded_with: VCR 3.0.3
