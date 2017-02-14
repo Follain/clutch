@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe Client do
+RSpec.describe Clutch::Client do
   before do
     Clutch.configure do |c|
       c.clutch_brand = "cool-brand"
@@ -10,7 +10,7 @@ RSpec.describe Client do
   end
 
   describe "#headers" do
-    subject(:headers) { Client.new.headers }
+    subject(:headers) { Clutch::Client.new.headers }
 
     it "pulls brand, location, and terminal from environment variables" do
       expect(headers['brand']).to eq 'cool-brand'
