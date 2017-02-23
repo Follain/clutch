@@ -1,0 +1,195 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/allocate
+    body:
+      encoding: UTF-8
+      string: '{"cardSetId":"FollTest01"}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Feb 2017 15:47:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '112'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483188247073793","pin":"1213","success":true,"requestRef":"d6ee59a3-7517-4f36-a571-0e63049c5cca"}'
+    http_version: 
+  recorded_at: Tue, 21 Feb 2017 15:47:39 GMT
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483188247073793","action":"issue","redeemFromHoldTransactionId":null,"releaseHoldRemainder":false,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":10.99}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Feb 2017 15:47:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '146'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"transactionId":"54879781","cardNumber":"483188247073793","didOverdraw":false,"success":true,"requestRef":"6bf5e224-56e6-45ba-84e1-37a836d2df47"}'
+    http_version: 
+  recorded_at: Tue, 21 Feb 2017 15:47:40 GMT
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483188247073793","action":"hold","redeemFromHoldTransactionId":null,"releaseHoldRemainder":false,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":1.99}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Feb 2017 15:47:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '146'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"transactionId":"54879782","cardNumber":"483188247073793","didOverdraw":false,"success":true,"requestRef":"1466a1f7-5c46-459e-8ed4-68a716387fbd"}'
+    http_version: 
+  recorded_at: Tue, 21 Feb 2017 15:47:41 GMT
+- request:
+    method: post
+    uri: https://api-test.profitpointinc.com:9002/updateBalance
+    body:
+      encoding: UTF-8
+      string: '{"cardNumber":"483188247073793","action":"redeem","redeemFromHoldTransactionId":"54879782","releaseHoldRemainder":true,"isReturnRelated":false,"amount":{"balanceType":"Currency","balanceCode":"USD","amount":0}}'
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Authorization:
+      - "<SECRET>"
+      Brand:
+      - FOLLAIN
+      Location:
+      - FOLL999
+      Terminal:
+      - follain
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Feb 2017 15:48:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '146'
+      Connection:
+      - close
+      Server:
+      - nginx/1.10.1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Authorization, brand, location, terminal, employee, employeePassword, customRequestId,
+        externalTransactionId, note, accept, content-type
+      Access-Control-Request-Method:
+      - POST, GET, OPTIONS
+    body:
+      encoding: UTF-8
+      string: '{"transactionId":"54879783","cardNumber":"483188247073793","didOverdraw":false,"success":true,"requestRef":"c87e9ba1-6a29-4966-ad0a-039da70a4dfd"}'
+    http_version: 
+  recorded_at: Tue, 21 Feb 2017 15:48:22 GMT
+recorded_with: VCR 3.0.3

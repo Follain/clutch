@@ -58,6 +58,21 @@ describe Clutch, vcr: true do
     end
   end
 
+  describe ".release_hold" do
+    it "POSTS to release the balance correctly" do
+      card = Clutch.allocate(card_set_id: "FollTest01")
+      issue = Clutch.issue(card_number: card.cardNumber, dollars: 10.99)
+      hold = Clutch.hold(card_number: card.cardNumber, dollars: 1.99)
+      release = Clutch.release_hold(
+        card_number: card.cardNumber,
+        dollars: 0,
+        hold_transaction_id: hold.transactionId
+      )
+
+      expect(release).to be_success
+    end
+  end
+
   describe ".search" do
     it "returns matching cards" do
       search = Clutch.search(filters: { cardNumber: 483109705813926 }, returnFields: {})

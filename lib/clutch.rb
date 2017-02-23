@@ -45,6 +45,10 @@ module Clutch
       update_balance card_number, dollars, "redeem", hold_transaction_id: hold_transaction_id
     end
 
+    def release_hold(card_number:, dollars:, hold_transaction_id:)
+      update_balance card_number, dollars, "redeem", hold_transaction_id: hold_transaction_id, release_hold_remainder: true
+    end
+
     def search(filters:, returnFields:)
       client.post "/search", filters: filters, returnFields: returnFields
     end
@@ -84,11 +88,12 @@ module Clutch
 
     private
 
-    def update_balance(card_number, dollars, action, hold_transaction_id: nil, is_return_related: false)
+    def update_balance(card_number, dollars, action, hold_transaction_id: nil, is_return_related: false, release_hold_remainder: false)
       client.post "/updateBalance",
         cardNumber: card_number,
         action: action,
         redeemFromHoldTransactionId: hold_transaction_id,
+        releaseHoldRemainder: release_hold_remainder,
         isReturnRelated: is_return_related,
         amount: {
           balanceType: "Currency",
