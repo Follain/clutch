@@ -9,7 +9,7 @@ A simple client for the [Clutch API](http://stage-api-docs.clutch.com:8091/)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'clutch'
+gem 'clutch-client'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install clutch
+    $ gem install clutch-client
 
 ## Usage
 

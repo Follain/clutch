@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'clutch/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "clutch"
+  spec.name          = "clutch-client"
   spec.version       = Clutch::VERSION
   spec.authors       = [""]
   spec.email         = [""]
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -30,13 +30,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", "~> 0.11.0"
-  spec.add_dependency "faraday_middleware", "~> 0.11.0.1"
-  spec.add_dependency "hashie"
+  spec.add_dependency "faraday", "~> 0.11"
+  spec.add_dependency "faraday_middleware", "~> 0.11"
+  spec.add_dependency "hashie", "~> 3.5"
 
-  spec.add_development_dependency "rspec", "~> 3.5.0"
-  spec.add_development_dependency "pronto"
-  spec.add_development_dependency "pronto-rubocop"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "rspec", "~> 3.5"
+  spec.add_development_dependency "pronto", "~> 0.7"
+  spec.add_development_dependency "pronto-rubocop", "~> 0.7"
+  spec.add_development_dependency "vcr", "~> 3.0"
+  spec.add_development_dependency "webmock", "~> 2.3"
 end
