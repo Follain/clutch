@@ -29,11 +29,11 @@ module Clutch
       #opts = { ssl: { verify: false }, proxy: "http://localhost:8888" }
       opts = {}
       Faraday.new(api_base, opts) do |faraday|
-        faraday.adapter :net_http
         faraday.request :json
 
         faraday.response :mashify
         faraday.response :json
+        faraday.adapter :net_http
       end.tap do |faraday|
         faraday.basic_auth api_key, api_secret
       end
